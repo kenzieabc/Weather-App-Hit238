@@ -6,6 +6,10 @@ const api = {
 }
 
 function App() {
+  //Connect to the API to run the weather dynacmicly with the research result
+  const [query, setQuery] = useState('');
+ 
+  }
 
   const dateBuilder = (d) => {
     let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
