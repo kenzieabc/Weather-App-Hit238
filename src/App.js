@@ -6,14 +6,14 @@ const api = {
 }
 
 function App() {
-  //Connect to the API to run the weather dynacmicly with the research result
+  //Connecting to the API to get the result for the weather
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState('');
   const search = e =>{
     if (e.key === "Enter"){
-      //fetch get request from the api base then set the weather and query
+      //fetch function to request the query and the weather. Also sets the unit to metric
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        //result: get the json pass thourght the result and set the wehther to the result
+        //pass the result with json and set the weather
         .then(res => res.json())
         .then(result => {
           setQuery('');
@@ -23,6 +23,7 @@ function App() {
     }
   }
 
+  //constant to display the date dynamically. Returns day, date, month and year
   const dateBuilder = (d) => {
     let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday", "Saturday"];
@@ -36,6 +37,7 @@ function App() {
   }
 
   return (
+    // sets the type of weather unequal to undefined. Returns weather is warm if temperature is more than 16
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'App warm' : 'App' ) : 'App'}>
       <main>
         <div className="search-box">
