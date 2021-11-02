@@ -9,22 +9,17 @@ function App() {
   //Connect to the API to run the weather dynacmicly with the research result
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState('');
-  function App() {
-    //Connect to the API to run the weather dynacmicly with the research result
-    const [query, setQuery] = useState('');
-    const [weather, setWeather] = useState('');
-    const search = e =>{
-      if (e.key === "Enter"){
-        //fetch get request from the api base then set the weather and query
-        fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-          //result: get the json pass thourght the result and set the wehther to the result
-          .then(res => res.json())
-          .then(result => {
-            setQuery('');
-            setWeather(result);
-            console.log(result);
-          });
-      }
+  const search = e =>{
+    if (e.key === "Enter"){
+      //fetch get request from the api base then set the weather and query
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+        //result: get the json pass thourght the result and set the wehther to the result
+        .then(res => res.json())
+        .then(result => {
+          setQuery('');
+          setWeather(result);
+          console.log(result);
+         });
     }
   }
 
