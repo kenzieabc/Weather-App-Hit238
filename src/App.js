@@ -8,6 +8,7 @@ const api = {
 function App() {
   //Connect to the API to run the weather dynacmicly with the research result
   const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState('');
  
   }
 
